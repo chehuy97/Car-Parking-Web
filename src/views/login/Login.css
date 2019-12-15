@@ -1,0 +1,29 @@
+.login-container {
+  background-image: url("https://images8.alphacoders.com/859/thumb-1920-859683.jpg");
+  width: 100vw;
+  height: 100vh;
+}
+.login-container a {
+  color: black !important;
+}
+.formLogin {
+  width: 30vw;
+  margin-left: 35vw;
+  height: 20vw;
+  margin-top: 15vh;
+  background-color: #cccccc;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 0.5%;
+  border-radius: 2%;
+}
+.textLogin {
+  font-size: 25px;
+  margin-left: 40%;
+}
+.color_name {
+  color: red;
+}
+.btnLogin {
+  width: 100%;
+}

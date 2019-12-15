@@ -1,0 +1,39 @@
+/* .containerOwner {
+  opacity: 0.5;
+  overflow-y: hidden;
+} */
+.Table {
+  width: 70vw;
+  margin-left: 20vw;
+}
+.tableColumnName {
+  background-color: #adcbe3;
+}
+.OwnerTitle {
+  width: 10vw;
+  margin-left: 50vw;
+  font-weight: bold;
+  font-size: 30px;
+}
+.imgOwnerAvatar {
+  width: 60px;
+  height: 60px;
+  margin-top: 0.5vh;
+  margin-bottom: 0.5vh;
+  margin-left: 3vw;
+}
+.btnDetail {
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.detailDialog {
+  width: 500px;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+}
+.registerName {
+  width: 30px;
+}

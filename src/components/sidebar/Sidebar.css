@@ -1,0 +1,57 @@
+.sidenav {
+  height: 100vh;
+  width: 15vw;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  /* background-color: #455a64; */
+  background-image: url("https://images8.alphacoders.com/877/thumb-1920-877317.jpg");
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 10px 8px 6px 30px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  display: block;
+}
+
+.sidenav div a:hover {
+  background-color: #fed766;
+}
+.blockImageUsername {
+  border-bottom: 2px solid wheat;
+}
+.imgItem {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
+.nameItem {
+  margin-top: 2px;
+}
+.imgAvatar {
+  width: 6.5vw;
+  height: 6.5vw;
+  border-radius: 50%;
+  margin-left: 4.25vw;
+  margin-top: 1vw;
+  margin-bottom: 0.5vw;
+}
+.textUsername {
+  font-weight: bold;
+  font-size: 20;
+  width: 5vw;
+  margin-left: 5vw;
+  color: white;
+}
+.btnLogout {
+  position: absolute;
+  width: 11vw;
+  bottom: 3vh;
+  left: 2vw;
+  background-color: #283655;
+}
