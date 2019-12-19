@@ -7,23 +7,27 @@ export default class Report extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ownerData: [],
-      show: false
+      reportData: [],
+      show: false,
+      refreshData: false
     };
   }
+  // RefreshData = async () => {
+
+  // }
   changeShow = () => {
     this.setState({ show: !this.state.show });
   };
-  getStatus = status => {
-    if (status === true) {
-      return <td>Active</td>;
-    } else {
-      return <td>Inactive</td>;
-    }
-  };
   getAllAccount = async () => {
-    var res = await Axios.get("http://192.168.21.90:3000/api/admins/owners");
-    this.setState({ ownerData: res.data });
+    var res = await Axios.get("http://192.168.21.90:3000/api/admins/reports");
+    this.setState({ reportData: res.data });
+  };
+  reportHandling = async reportId => {
+    var res = await Axios.get(
+      "http://192.168.21.90:3000/api/admins/reports/" + reportId
+    );
+    this.getAllAccount();
+    alert("processed successfully");
   };
   componentDidMount = () => {
     this.getAllAccount();
@@ -32,72 +36,44 @@ export default class Report extends Component {
     return (
       <div>
         <SideBar />
-        <p className="OwnerTitle">Owner</p>
+        <p className="OwnerTitle">Report</p>
         <Table striped bordered hover size="sm" className="Table">
           <thead className="tableColumnName">
             <tr>
               <th>Id</th>
-              <th>Username</th>
-              <th>Status</th>
-              <th>Name</th>
-              <th>Birthday</th>
-              <th>Gender</th>
-              <th>Phone</th>
-              <th>Image</th>
-              <th>Balance</th>
-              <th>Edit</th>
+              <th>Car Number</th>
+              <th>Time Come</th>
+              <th>Time Leave</th>
+              <th>Day</th>
+              <th>Yard Id</th>
+              <th>Slot</th>
+              <th>Report</th>
             </tr>
           </thead>
           <tbody>
-            {this.state.ownerData.map(item => (
+            {this.state.reportData.map(item => (
               <tr>
                 <td>{item.id}</td>
-                <td>{item.username}</td>
-                {this.getStatus(item.status)}
-                <td>{item.name}</td>
-                <td>{item.birthday}</td>
-                <td>{item.gender}</td>
-                <td>{item.phone}</td>
-                <td>
-                  <img
-                    src={item.image}
-                    alt="avatar"
-                    className="imgCustomerAvatar"
-                  />
-                </td>
-                <td>{item.balance}</td>
+                <td>{item.car_number}</td>
+                <td>{item.transaction.time_come}</td>
+                <td>{item.transaction.time_leave}</td>
+                <td>{item.transaction.day}</td>
+                <td>{item.transaction.yardId}</td>
+                <td>{item.transaction.slot}</td>
                 <td>
                   <input
                     type="image"
                     alt="button"
-                    src="https://image.flaticon.com/icons/svg/1052/1052666.svg"
+                    src="https://image.flaticon.com/icons/png/512/1660/1660179.png"
                     className="btnDetail"
-                    onClick={() => this.changeShow()}
+                    onClick={() => this.reportHandling(item.id)}
                   />
                 </td>
               </tr>
             ))}
-            <td>
-              <input
-                type="image"
-                alt="button"
-                src="https://image.flaticon.com/icons/svg/104/104618.svg"
-                className="btnDetail"
-                onClick={() => this.changeShow()}
-              />
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
           </tbody>
         </Table>
-        <Modal show={this.state.show} onHide={() => this.changeShow()}>
+        {/* <Modal show={this.state.show} onHide={() => this.changeShow()}>
           <Modal.Header closeButton>
             <Modal.Title>Owner Register</Modal.Title>
           </Modal.Header>
@@ -135,7 +111,7 @@ export default class Report extends Component {
               Save Changes
             </Button>
           </Modal.Footer>
-        </Modal>
+        </Modal> */}
       </div>
     );
   }
